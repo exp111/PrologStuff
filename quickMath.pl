@@ -10,7 +10,9 @@ mult(A,o,o) :- natSymb(A).
 mult(A,s(B),R) :- natSymb(A), natSymb(B), mult(A,B,U), plus(A,U,R).
 
 eqZero(0).
-
+neqZero(X) :- natSymb(X), plus(o, X, s(_)).
+less(X,Y) :- natSymb(X), natSymb(Y), plus(X,R,Y), eqZero(R).
+lessEqual(X,Y) :- natSymb(X), natSymb(Y), plus(X,R,Y).
 square(X,Y) :- natSymb(X), natSymb(Y), mult(X,X,Y).
 
 natSymb(o).
