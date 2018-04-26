@@ -41,4 +41,5 @@ head(list(X, Xs), X).
 tail(list(H, Ys), Ys).
 
 %append(Xs,Ys,Rs) :- Dabei ergibt sich die Liste Rs durch Anhängen der Liste Ys an die Liste Xs.
-append(Xs, Ys, Rs) :- tail(list(o, Xs), Rs).
+append(nil, Ys, Ys).
+append(list(H, Xs), Ys, list(H, Rs)) :- append(Xs, Ys, Rs).
