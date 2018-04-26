@@ -22,3 +22,6 @@ natSymb(s(X)) :- natSymb(X).
 %exp(A, s(B), R) :- A^B = R
 exp(A, o, s(o)).
 exp(A, s(B), R) :- natSymb(A), natSymb(B), exp(A, B, U), mult(A,U,R).
+
+%log(A, B, R) :- log(A) zur Basis von B = R
+log(A, B, R) :- natSymb(A), natSymb(B), exp(B ,R, A).
