@@ -23,7 +23,7 @@ natSymb(s(X)) :- natSymb(X).
 exp(A, o, s(o)).
 exp(A, s(B), R) :- natSymb(A), natSymb(B), exp(A, B, U), mult(A,U,R).
 
-%log(A, B, R) :- log(A) zur Basis von B = R
+%log(A, B, R) :- logB(A) = R
 log(A, B, R) :- natSymb(A), natSymb(B), exp(B ,R, A).
 
 %natList(list(H, T)) :- list enthält nur natürliche Symbole
@@ -41,3 +41,4 @@ head(list(X, Xs), X).
 tail(list(H, Ys), Ys).
 
 %append(Xs,Ys,Rs) :- Dabei ergibt sich die Liste Rs durch Anhängen der Liste Ys an die Liste Xs.
+append(Xs, Ys, Rs) :- tail(list(o, Xs), Rs).
