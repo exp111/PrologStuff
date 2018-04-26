@@ -22,3 +22,7 @@ weg(A, B) :- way(A, C), weg(C, B).
 %wegL(A, B, s(L)) :- Es existiert ein Weg von A nach B mit einer Weglänge von L
 wegL(A, A, o).
 wegL(A, B, s(L)) :- way(A, C), wegL(C, B, L).
+
+%wegK(A, B, Ks) :- Es existiert ein Weg A nach B der über die Knoten der Liste geht
+wegK(A, A, list(A, nil)).
+wegK(A, B, list(A, Ts)) :- way(A, C), wegK(C, B, Ts).
