@@ -25,3 +25,11 @@ exp(A, s(B), R) :- natSymb(A), natSymb(B), exp(A, B, U), mult(A,U,R).
 
 %log(A, B, R) :- log(A) zur Basis von B = R
 log(A, B, R) :- natSymb(A), natSymb(B), exp(B ,R, A).
+
+%natList(list(H, T)) :- list enthält nur natürliche Symbole
+natList(nil).
+natList(list(H, T)) :- natSymb(H), natList(T).
+
+%invList(list(s(H), list(H, T))) :- list enthält die ersten natürlichen Zahlen als Symbole in umgekehrter Reihenfolge aufsteigend
+invList(list(o, nil)).
+invList(list(s(H), list(H, T))) :- natList(list(H, T)), invList(list(H, T)).
