@@ -31,6 +31,7 @@ natList(nil).
 natList(list(H, T)) :- natSymb(H), natList(T).
 
 %invList(list(s(H), list(H, T))) :- list enthält die ersten natürlichen Zahlen als Symbole in umgekehrter Reihenfolge aufsteigend
+invList(nil).
 invList(list(o, nil)).
 invList(list(s(H), list(H, T))) :- natList(list(H, T)), invList(list(H, T)).
 
