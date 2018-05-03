@@ -44,11 +44,3 @@ tail(list(H, Ys), Ys).
 %append(Xs,Ys,Rs) :- Dabei ergibt sich die Liste Rs durch Anhängen der Liste Ys an die Liste Xs.
 append(nil, Ys, Ys).
 append(list(H, Xs), Ys, list(H, Rs)) :- append(Xs, Ys, Rs).
-
-%anz(Xs, N) :- N ist die Anzahl der Elemente in Xs
-anz(nil, o).
-anz(list(X, Xs), s(N)) :- anz(Xs, N).
-
-%prefix(Xs, Ys) :- Die Liste Xs beginnt mit der Liste Ys
-prefix(Xs, nil).
-prefix(list(X, Xs), list(X, Ys)) :- prefix(Xs, Ys).
