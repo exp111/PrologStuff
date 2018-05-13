@@ -30,10 +30,10 @@ log(A, B, R) :- natSymb(A), natSymb(B), exp(B ,R, A).
 natList(nil).
 natList(list(H, T)) :- natSymb(H), natList(T).
 
-%invList(list(s(H), list(H, T))) :- list enthält die ersten natürlichen Zahlen als Symbole in umgekehrter Reihenfolge aufsteigend
-invList(nil).
-invList(list(o, nil)).
-invList(list(s(H), list(H, T))) :- natList(list(H, T)), invList(list(H, T)).
+%invListSymb(list(s(H), list(H, T))) :- list enthält die ersten natürlichen Zahlen als Symbole in umgekehrter Reihenfolge aufsteigend
+invListSymb(nil).
+invListSymb(list(o, nil)).
+invListSymb(list(s(H), list(H, T))) :- natList(list(H, T)), invList(list(H, T)).
 
 %head(Xs, X) :- X ist das erste Element der Liste Xs.
 head(list(X, Xs), X).
