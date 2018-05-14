@@ -54,9 +54,9 @@ permutationL([H|Xs], [H|Ys]) :- permutationL(Xs, Ys).
 
 %A29)
 %invListNum(list(s(H), list(H, T))) :- list enthält die ersten natürlichen Zahlen in numerischer Darstellung in umgekehrter Reihenfolge aufsteigend
+invListNum([]).
 invListNum([0]).
-invListNum([1,0]).
-invListNum([H1|[H2|Ts]]) :- H1 is H2 + 1, invListNum([H, T]).
+invListNum([H1|[H2|Ts]]) :- invListNum([H2|Ts]), H1 is H2 + 1.
 
 
 %A30)
@@ -67,4 +67,4 @@ listLength([X|Xs],N) :- listLength(Xs, N1), N is N1 + 1.
 %anz(X,Xs,N) :- Die natürliche Zahl N ist die Häufigkeit des Auftretens von X in Xs in numerischer Darstellung.
 anz(X, [], 0).
 anz(X,[X|Xs],N) :- anz(X, Xs, N1), N is N1 + 1.
-anz(X,[H|Xs],N) :- anz(X, Xs, N).
+anz(X,[H|Xs],N) :- X =\= H, anz(X, Xs, N).
