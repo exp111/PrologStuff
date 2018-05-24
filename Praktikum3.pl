@@ -32,7 +32,7 @@ preorder(n(R, Lb, Rb), [R|Ys]) :- preorder(Lb, KLs), preorder(Rb, KRs), append(K
 
 %postorder(Xb,Ys) : Ys ist die Liste der Knotenbeschriftungen des Binärbaumes Xb in Postorder.
 postorder(e, []).
-postorder(n(R, Lb, Rb), [Ys, R]) :- postorder(Lb, KLs), postorder(Rb, KRs), append(KLs, KRs, Ys).
+postorder(n(R, Lb, Rb), Ys) :- postorder(Lb, KLs), postorder(Rb, KRs), append(KLs, KRs, Ks), append(Ks, [R], Ys).
 
 %roots(Xbs, Ys) :- Xbs ist eine Liste von Binärbäumen. Die Liste Ys ist die Liste der Wurzelbeschriftungen der Binärbäume in Xbs in der richtigen Reihenfolge.
 roots([], []).
