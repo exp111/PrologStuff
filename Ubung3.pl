@@ -1,6 +1,10 @@
 % Autor:
 % Datum: 03.05.2018
 
+%append(Xs,Ys,Rs) :- Dabei ergibt sich die Liste Rs durch Anhängen der Liste Ys an die Liste Xs.
+app(nil, Ys, Ys).
+app(list(H, Xs), Ys, list(H, Rs)) :- app(Xs, Ys, Rs).
+
 %A20
 %a)
 %anz(Xs, N) :- N ist die Anzahl der Elemente in Xs.
@@ -11,6 +15,8 @@ anz(list(X, Xs), s(N)) :- anz(Xs, N).
 %prefix(Xs, Ys) :- Die Liste Xs beginnt mit der Liste Ys.
 prefix(Xs, nil).
 prefix(list(X, Xs), list(X, Ys)) :- prefix(Xs, Ys).
+
+pref(Xs, Ys) :- app(Xs, Ms, Ys).
 
 %A21
 %b)
