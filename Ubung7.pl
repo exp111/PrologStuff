@@ -2,7 +2,7 @@
 % Datum: 03.06.2018
 
 %A16.)
-%mirror(Xb,Yb) :- Yb ist der gespiegelte Baum Xb
+%mirror(Xb,Yb) :- Yb ist der gespiegelte Baum Xb.
 mirror(e, e).
 mirror(n(R,Lb,Rb), n(R, RMb, LMb)) :- mirror(Lb, LMb), mirror(Rb, RMb).
 
