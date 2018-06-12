@@ -25,6 +25,10 @@ startZMenge([z0]).
 endZMenge([z3]).
 
 %b)
+%delta_stern(Zakt,Ws,Zneu) :- Erweiterung der Transitionsrelation delta(S,U,N).
+delta_stern(S,[], S) :- endZMenge([S]).
+delta_stern(S,[W|Ws],N) :- delta(S, W, N1), delta_stern(N1, Ws, N).
+
+
 %lvonN(Ws) :- Ws ist ein Wort in der Sprache aus a).
-lvonN(ew).
-lvonN([W|Ws]) :-
+lvonN(Ws) :- startZMenge([S]), endZMenge([E]), delta_stern(S, Ws, E).
